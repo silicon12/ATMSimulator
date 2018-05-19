@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "7e86ccf1-76e3-4b03-92ca-94000bef24c4",
+		"name": "ATMSim",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create New Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ff82179a-5342-47a5-b991-624cbd1f0d23",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Check Balance equals 105.59\", function () {",
+							"    ",
+							"    var jsonData = pm.response.json();",
+							"    ",
+							"    pm.expect(jsonData.balance).to.eql(105.59);",
+							"    ",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"accountNumber\": 123,\n\t\"isClosed\": false,\n\t\"balance\": 105.59\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/atm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"atm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Account Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "89f89cbd-1869-416e-9d2b-cf8e4cb15e4f",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Check Balance equals 105.59\", function () {",
+							"    ",
+							"    var jsonData = pm.response.json();",
+							"    ",
+							"    pm.expect(jsonData.balance).to.eql(105.59);",
+							"    ",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/atm/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"atm",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "89f89cbd-1869-416e-9d2b-cf8e4cb15e4f",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Check Balance equals 105.59\", function () {",
+							"    ",
+							"    var jsonData = pm.response.json();",
+							"    ",
+							"    pm.expect(jsonData.balance).to.eql(105.59);",
+							"    ",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/atm/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"atm",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete By Account Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e7c24e43-8b5d-4708-914b-e3caa296691d",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    ",
+							"    pm.response.to.have.status(200);",
+							"    ",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/atm/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"atm",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete By Account Number (again)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f7ab577-63ba-4951-a5c8-0ae019ff6839",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 404\", function () {",
+							"    ",
+							"    pm.response.to.have.status(404);",
+							"    ",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/atm/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"atm",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
